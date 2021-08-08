@@ -1,0 +1,13 @@
+import hashlib
+import sys
+
+n = len(sys.argv)
+
+if(n == 2):
+    inputString = str(sys.argv[1])
+    passwd = inputString.encode("utf8")
+    key = hashlib.pbkdf2_hmac("sha512", passwd, b'Km5d5ivMy8iexuHcZrsD', 200000, 64)
+    hexa_digit = key.hex()
+    print(hexa_digit)
+else:
+    print("please provide only one argument. ex: python Q6.py <string>")
