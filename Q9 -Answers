@@ -1,0 +1,13 @@
+import hashlib
+import os
+import sys
+
+n = len(sys.argv)
+if(n == 2):
+    inputString = str(sys.argv[1])
+    passwd = inputString.encode("utf8")
+    salt = os.urandom(20)
+    key = hashlib.sha512( salt + passwd );
+    print(key.hexdigest())
+else:
+    print("please provide only one argument. ex: python Q6.py <string>")
